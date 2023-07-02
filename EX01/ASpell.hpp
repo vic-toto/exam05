@@ -11,14 +11,15 @@ class ASpell
         std::string effects;
     public:
     ASpell();
-    ASpell(Aspell const &other);
+    ASpell(ASpell const &other);
     ASpell(std::string const &name, std::string const &effects);
     virtual ~ASpell();
     std::string const &getName() const;
     std::string const &getEffects() const;
-    ASpell &operato=(ASpell const &other);
-    virtiaul ASpell *clone() const = 0;
+    ASpell &operator=(ASpell const &other);
+    virtual ASpell *clone() const = 0;
+    void launch(ATarget const &target) const;
 };
 
-#incluse "ATarget.hpp"
+#include "ATarget.hpp"
 #endif
